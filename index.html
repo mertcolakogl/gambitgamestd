@@ -103,22 +103,29 @@
             display: block;
         }
         
-        .game-link {
-            color: #00ff00;
-            text-decoration: none;
-            display: block;
-            margin: 10px 0;
-            transition: opacity 0.3s;
-            font-size: 14px;
-        }
-        
-        .game-link:before {
-            content: '> ';
-        }
-        
-        .game-link:hover {
-            opacity: 0.7;
-        }
+        .game-item {
+    		margin: 10px 0;
+    		font-size: 14px;
+    		color: #00ff00;
+		}
+
+		.game-name {
+  		  color: #00ff00;
+		}
+
+		.store-links {
+  		  color: #00ff00;
+		}
+
+		.store-link {
+    		color: #00ff00;
+    		text-decoration: underline;
+    		transition: opacity 0.3s;
+		}
+
+		.store-link:hover {
+    		opacity: 0.7;
+		}
         
         .back-link {
             color: #00ff00;
@@ -311,13 +318,49 @@
                     const data = await response.json();
                     const gameListDiv = document.getElementById('gameList');
                     data.games.forEach(game => {
-                        const link = document.createElement('a');
-                        link.href = game.url;
-                        link.className = 'game-link';
-                        link.target = '_blank';
-                        link.textContent = game.name;
-                        gameListDiv.appendChild(link);
-                    });
+                    const gameItem = document.createElement('div');
+                    gameItem.className = 'game-item';
+
+                    const gameName = document.createElement('span');
+                    gameName.textContent = `> ${game.name}`;
+                    gameName.className = 'game-name';
+                    gameItem.appendChild(gameName);
+    
+                    const storeLinks = [];
+                    if (game.appstore) {
+                        const appLink = document.createElement('a');
+                        appLink.href = game.appstore;
+                        appLink.target = '_blank';
+                        appLink.textContent = 'App Store';
+                        appLink.className = 'store-link';
+                        storeLinks.push(appLink);
+                    }
+    
+                    if (game.playstore) {
+                        const playLink = document.createElement('a');
+                        playLink.href = game.playstore;
+                        playLink.target = '_blank';
+                        playLink.textContent = 'Play Store';
+                        playLink.className = 'store-link';
+                        storeLinks.push(playLink);
+                    }
+    
+                    if (storeLinks.length > 0) {
+                        const linkContainer = document.createElement('span');
+                        linkContainer.className = 'store-links';
+                        linkContainer.textContent = ' [ ';
+                        storeLinks.forEach((link, index) => {
+                            linkContainer.appendChild(link);
+                            if (index < storeLinks.length - 1) {
+                                linkContainer.appendChild(document.createTextNode(' / '));
+                            }
+                        });
+        
+                        linkContainer.appendChild(document.createTextNode(' ]'));
+                        gameItem.appendChild(linkContainer);
+                    }
+    
+                    gameListDiv.appendChild(gameItem);
                     
                     const backLink = document.createElement('a');
                     backLink.href = '#';
