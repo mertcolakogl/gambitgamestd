@@ -389,6 +389,18 @@
 			        gameListDiv.appendChild(backLink);
 			    }
 			}
+
+			const gamesLink = document.getElementById('gamesLink');
+	        if (gamesLink) {
+	            gamesLink.onclick = (e) => {
+	                e.preventDefault();
+	                document.getElementById('mainMenu').style.display = 'none';
+	                document.getElementById('gameList').classList.add('active');
+	            };
+	        }
+	        
+	        loadGames();
+		});
     </script>
 </body>
 </html>
