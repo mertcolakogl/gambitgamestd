@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="gambit_logo.png">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23000'/><text x='50' y='65' font-size='50' text-anchor='middle' fill='%2300ff00' font-family='monospace'>&gt;_</text></svg>">
     <title>Gambit Terminal</title>
     <style>
         * {
@@ -230,34 +230,30 @@
                 <a href="https://x.com/gambitgamestd" target="_blank">[X/Twitter]</a>
                 <a href="https://www.instagram.com/gambitgamestd/" target="_blank">[Instagram]</a>
             </div>
-            <div class="copyright">Copyright © 2025, a Gambit Game Studio production. All rights reserved.</div>
+            <div class="copyright">Copyright © 2026, a Gambit Game Studio production. All rights reserved.</div>
         </div>
     </div>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             let contentShown = false;
-            
-            // Enter tuşuna basıldığında içeriği göster
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Enter' && !contentShown) {
                     contentShown = true;
-                    document.getElementById('cursor').style.display = 'none';
+                    document.getElementById('cursor').style.opacity = '0';
                     document.getElementById('content').style.display = 'block';
                 }
             });
             
             async function loadGames() {
                 try {
-                    const response = await fetch('https://raw.githubusercontent.com/mertcolakogl/mertcolakogl.github.io/main/games.json');
-                    
+                    const response = await fetch('https://raw.githubusercontent.com/mertcolakogl/gambitgamestd/main/games.json');
                     if (!response.ok) {
                         throw new Error('Failed to fetch games');
                     }
                     
                     const data = await response.json();
                     const gameListDiv = document.getElementById('gameList');
-                    
                     data.games.forEach(game => {
                         const link = document.createElement('a');
                         link.href = game.url;
@@ -276,10 +272,10 @@
                         document.getElementById('mainMenu').style.display = 'block';
                         document.getElementById('gameList').classList.remove('active');
                     };
+                    
                     gameListDiv.appendChild(backLink);
                 } catch (error) {
                     console.error('Error loading games:', error);
-                    
                     const gameListDiv = document.getElementById('gameList');
                     const backLink = document.createElement('a');
                     backLink.href = '#';
@@ -290,6 +286,7 @@
                         document.getElementById('mainMenu').style.display = 'block';
                         document.getElementById('gameList').classList.remove('active');
                     };
+                    
                     gameListDiv.appendChild(backLink);
                 }
             }
