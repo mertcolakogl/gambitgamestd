@@ -247,10 +247,8 @@
                 }
             });
             
-            // Oyun listesini yükle
             async function loadGames() {
                 try {
-                    // GitHub raw URL - Bu URL'i kendi GitHub reponuzla değiştirin
                     const response = await fetch('https://raw.githubusercontent.com/mertcolakogl/mertcolakogl.github.io/main/games.json');
                     
                     if (!response.ok) {
@@ -260,7 +258,6 @@
                     const data = await response.json();
                     const gameListDiv = document.getElementById('gameList');
                     
-                    // Oyunları listele
                     data.games.forEach(game => {
                         const link = document.createElement('a');
                         link.href = game.url;
@@ -270,7 +267,6 @@
                         gameListDiv.appendChild(link);
                     });
                     
-                    // Back link ekle
                     const backLink = document.createElement('a');
                     backLink.href = '#';
                     backLink.className = 'back-link';
@@ -283,7 +279,7 @@
                     gameListDiv.appendChild(backLink);
                 } catch (error) {
                     console.error('Error loading games:', error);
-                    // Hata durumunda boş mesaj
+                    
                     const gameListDiv = document.getElementById('gameList');
                     const backLink = document.createElement('a');
                     backLink.href = '#';
