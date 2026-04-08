@@ -150,11 +150,13 @@ body {
 
 .about-ascii {
     font-size: 0.15rem;
-    line-height: 0.7;
+    line-height: 1.5;
     white-space: pre;
     overflow-x: auto;
     margin: 20px 0;
-    color: #00ff00;
+    color: #000000;
+    background-color: #00ff00;
+    width: max-content;
 }
 
 .about-name {
@@ -166,21 +168,21 @@ body {
 .about-role,
 .about-bio,
 .about-quote {
-    padding-left: 12px;
+    padding-left: 20px;
 }
 
 .about-role {
     font-size: 14px;
     color: #00ff00;
-    opacity: 0.7;
     margin: 5px 0;
+    line-height: 1.6;
 }
 
 .about-bio {
     font-size: 13px;
     color: #00ff00;
     margin: 5px 0;
-    line-height: 1.6;
+   
 }
 
 .about-quote {
@@ -262,4 +264,52 @@ body {
     .about-ascii {
         font-size: 0.08rem;
     }
+}
+
+/* Privacy Policy */
+.content {
+    margin: 20px 0;
+    font-size: 13px;
+}
+
+.content h2 {
+    color: #00ff00;
+    margin: 25px 0 15px 0;
+    font-size: 16px;
+}
+
+.content h2:before {
+    content: '# ';
+}
+
+.content p {
+    margin-bottom: 15px;
+}
+
+.content ul {
+    list-style: none;
+    margin-left: 0;
+    margin-bottom: 15px;
+}
+
+.content li {
+    margin-bottom: 8px;
+}
+
+.content li:before {
+    content: '- ';
+}
+
+.content a {
+    color: #00ff00;
+    text-decoration: none;
+}
+
+.content a:hover {
+    opacity: 0.7;
+}
+
+.content strong {
+    color: #00ff00;
+    font-weight: bold;
 }
