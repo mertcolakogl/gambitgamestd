@@ -262,7 +262,8 @@ body {
     }
 
     .about-ascii {
-        font-size: 0.08rem;
+        font-size: 0.15rem;
+        line-height: 1.5;
     }
 }
 
