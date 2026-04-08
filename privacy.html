@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="gambit_logo.png">
-    <title>Privacy Policy - Gambit Terminal</title>
+    <title>Privacy Policy</title>
     <style>
         * {
             margin: 0;
@@ -19,15 +19,25 @@
             line-height: 1.6;
             padding: 20px;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
         
         .terminal {
             max-width: 100%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .content-wrapper {
+            flex: 1;
         }
         
         .prompt {
             color: #00ff00;
             margin-bottom: 20px;
+            font-size: 14px;
         }
         
         .cursor {
@@ -96,6 +106,7 @@
             display: inline-block;
             margin-top: 30px;
             transition: opacity 0.3s;
+            font-size: 14px;
         }
         
         .back-link:hover {
@@ -107,8 +118,9 @@
         }
         
         .footer {
-            margin-top: 40px;
-            font-size: 11px;
+            margin-top: auto;
+            padding-top: 20px;
+            font-size: 14px;
         }
         
         .social-links {
@@ -121,10 +133,19 @@
             color: #00ff00;
             text-decoration: none;
             transition: opacity 0.3s;
+            font-size: 14px;
+        }
+        
+        .social-links a:before {
+            content: '> ';
         }
         
         .social-links a:hover {
             opacity: 0.7;
+        }
+        
+        .copyright {
+            font-size: 12px;
         }
         
         @media (max-width: 768px) {
@@ -144,9 +165,10 @@
 </head>
 <body>
     <div class="terminal">
-        <div class="prompt">user@gambit:~$ cat privacy_policy.txt<span class="cursor"></span></div>
-        
-        <div class="content">
+        <div class="content-wrapper">
+            <div class="prompt">user@gambit:~$ cat privacy_policy.txt<span class="cursor"></span></div>
+            
+            <div class="content">
                 <h2>Privacy Policy</h2>
                 
                 <p>This Service is provided by Gambit Game Studio at no cost and is intended for use as is.</p>
@@ -248,15 +270,15 @@
                 privacy policy: <a href="https://www.voodoo.io" target="_blank">https://www.voodoo.io</a></p>
                 
                 <a href="index.html" class="back-link">back to home</a>
-                
-                <div class="footer">
-                    <div class="social-links">
-                        <a href="https://x.com/gambitgamestd" target="_blank">[X/Twitter]</a>
-                        <a href="https://www.instagram.com/gambitgamestd/" target="_blank">[Instagram]</a>
-                    </div>
-                    <div>Copyright © 2025, a Gambit Game Studio production. All rights reserved.</div>
-                </div>
             </div>
+        </div>
+        
+        <div class="footer">
+            <div class="social-links">
+                <a href="https://x.com/gambitgamestd" target="_blank">[X/Twitter]</a>
+                <a href="https://www.instagram.com/gambitgamestd/" target="_blank">[Instagram]</a>
+            </div>
+            <div class="copyright">Copyright © 2025, a Gambit Game Studio production. All rights reserved.</div>
         </div>
     </div>
 </body>
