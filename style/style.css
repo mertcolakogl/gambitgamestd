@@ -149,8 +149,8 @@ body {
 }
 
 .about-ascii {
-    font-size: 0.12rem;
-    line-height: 0.9;
+    font-size: 0.15rem;
+    line-height: 0.7;
     white-space: pre;
     overflow-x: auto;
     margin: 20px 0;
